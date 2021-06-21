@@ -1,3 +1,12 @@
+import com.mysql.jdbc.Statement;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import konfigurasi.Koneksi;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -53,9 +62,10 @@ public class Pendaftaran extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jurusanPil1 = new javax.swing.JComboBox<>();
         jurusanPil2 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        daftar = new javax.swing.JButton();
         nilaiUN = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(18, 93, 152));
 
@@ -175,6 +185,11 @@ public class Pendaftaran extends javax.swing.JFrame {
         jLabel12.setText("Nama");
 
         nama.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        nama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namaActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel13.setText("Alamat");
@@ -188,7 +203,8 @@ public class Pendaftaran extends javax.swing.JFrame {
 
         ttl.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
 
-        jenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jenisKelamin.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "L", "P"}));
         jenisKelamin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jenisKelaminActionPerformed(evt);
@@ -202,18 +218,25 @@ public class Pendaftaran extends javax.swing.JFrame {
         jLabel16.setText("Jurusan");
 
         jurusanPil1.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jurusanPil1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jurusanPil1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TKJ", "TKR", "AK"}));
 
         jurusanPil2.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jurusanPil2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jurusanPil2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TKJ", "TKR", "AK"}));
 
-        jButton1.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
-        jButton1.setText("Daftar");
+        daftar.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
+        daftar.setText("Daftar");
+        daftar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                daftarActionPerformed(evt);
+            }
+        });
 
         nilaiUN.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel17.setText("Jumlah nilai UN");
+
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -262,10 +285,12 @@ public class Pendaftaran extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(171, 171, 171)
-                                .addComponent(jButton1)
+                                .addComponent(daftar)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(108, 108, 108)
                         .addComponent(kembali)))
                 .addGap(23, 23, 23))
         );
@@ -273,7 +298,9 @@ public class Pendaftaran extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(kembali)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kembali, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -309,7 +336,7 @@ public class Pendaftaran extends javax.swing.JFrame {
                             .addComponent(jurusanPil1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jurusanPil2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
-                        .addComponent(jButton1)))
+                        .addComponent(daftar)))
                 .addGap(565, 565, 565))
         );
 
@@ -329,13 +356,30 @@ public class Pendaftaran extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jenisKelaminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenisKelaminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jenisKelaminActionPerformed
-
     private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
         new Main().setVisible(true);
     }//GEN-LAST:event_kembaliActionPerformed
+
+    private void daftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarActionPerformed
+        try{
+            Connection conn = Koneksi.getConnection();
+            Statement stmt = (Statement) conn.createStatement();
+            stmt.executeUpdate("INSERT INTO pendaftaran (nama, alamat, ttl, jenis_kelamin, jml_un, jurusan_pil1, jurusan_pil2, status, role) values ('"+nama.getText()+"','"+alamat.getText()+"','"+ttl.getText()+"','"+jenisKelamin.getSelectedItem()+"','"+nilaiUN.getText()+"','"+jurusanPil1.getSelectedItem()+"','"+jurusanPil2.getSelectedItem()+"','"+"Evaluasi"+"','"+12345+"');");
+            stmt.close();
+            JOptionPane.showMessageDialog(null,"Sukses Memasukan data");
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Gagal Memasukan data" +e);
+        }
+    }//GEN-LAST:event_daftarActionPerformed
+
+    private void namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaActionPerformed
+       // TODO add your handling code:
+    }//GEN-LAST:event_namaActionPerformed
+
+    private void jenisKelaminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenisKelaminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jenisKelaminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -374,7 +418,8 @@ public class Pendaftaran extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea alamat;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton daftar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
