@@ -65,7 +65,6 @@ public class Pendaftaran extends javax.swing.JFrame {
         daftar = new javax.swing.JButton();
         nilaiUN = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(18, 93, 152));
 
@@ -236,8 +235,6 @@ public class Pendaftaran extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel17.setText("Jumlah nilai UN");
 
-        jLabel1.setText("jLabel1");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -289,8 +286,6 @@ public class Pendaftaran extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(108, 108, 108)
                         .addComponent(kembali)))
                 .addGap(23, 23, 23))
         );
@@ -298,9 +293,7 @@ public class Pendaftaran extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kembali, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addComponent(kembali)
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -419,7 +412,6 @@ public class Pendaftaran extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea alamat;
     private javax.swing.JButton daftar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

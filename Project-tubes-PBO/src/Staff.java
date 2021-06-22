@@ -3,18 +3,61 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import konfigurasi.Koneksi;
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
+
+
 
 /**
  *
  * @author Im-Bot
  */
 public class Staff extends javax.swing.JFrame {
+    private DefaultTableModel DftTblModel_barang;
+    private String SQL;
+    
+    public void TampilData() throws SQLException {
+        DftTblModel_barang = new DefaultTableModel();
+        DftTblModel_barang.addColumn("ID Pendaftaran");
+        DftTblModel_barang.addColumn("Nama");
+        DftTblModel_barang.addColumn("Alamat");
+        DftTblModel_barang.addColumn("TTL");
+        DftTblModel_barang.addColumn("Jumlah Nilai UN");        
+        DftTblModel_barang.addColumn("Jurusan Pilihan 1");        
+        DftTblModel_barang.addColumn("Jurusan Pilihan 2");        
+        DftTblModel_barang.addColumn("Status");
 
+        dataSiswa.setModel(DftTblModel_barang);
+        Connection conn = Koneksi.getConnection();
+        try {
+            java.sql.Statement stmt = conn.createStatement();
+            SQL = "select * from pendaftaran";
+            java.sql.ResultSet res = stmt.executeQuery(SQL);
+            while (res.next()) {
+                DftTblModel_barang.addRow(new Object[]{
+                    res.getString("nama"),
+                    res.getString("alamat"),
+                    res.getString("ttl"),
+                    res.getString("jenis_kelamin"),
+                    res.getInt("jml_un"),
+                    res.getString("jurusan_pil1"),
+                    res.getString("jurusan_pil2"),
+                    res.getString("status")
+                });
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
     /**
      * Creates new form Main
      */
-    public Staff() {
+    public Staff() throws SQLException {
         initComponents();
+        this.TampilData();
     }
 
     /**
@@ -43,7 +86,9 @@ public class Staff extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        dataSiswa = new javax.swing.JTable();
+        ubahData = new javax.swing.JButton();
+        hapusData = new javax.swing.JButton();
 
         jPanel3.setBackground(new java.awt.Color(18, 93, 152));
 
@@ -163,7 +208,7 @@ public class Staff extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("PT Sans", 0, 24)); // NOI18N
         jLabel11.setText("Selamat Datang Staff");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        dataSiswa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -174,7 +219,23 @@ public class Staff extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(dataSiswa);
+
+        ubahData.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
+        ubahData.setText("Ubah Data");
+        ubahData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubahDataActionPerformed(evt);
+            }
+        });
+
+        hapusData.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
+        hapusData.setText("Hapus Data");
+        hapusData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusDataActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -186,12 +247,16 @@ public class Staff extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
-                                    .addComponent(jLabel11))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)))
+                                    .addComponent(jLabel11)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ubahData)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(hapusData)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(kembali)))
@@ -210,7 +275,11 @@ public class Staff extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ubahData)
+                            .addComponent(hapusData))))
                 .addGap(584, 584, 584))
         );
 
@@ -235,6 +304,14 @@ public class Staff extends javax.swing.JFrame {
     private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
         new Main().setVisible(true);
     }//GEN-LAST:event_kembaliActionPerformed
+
+    private void ubahDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ubahDataActionPerformed
+
+    private void hapusDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hapusDataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,6 +349,8 @@ public class Staff extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable dataSiswa;
+    private javax.swing.JButton hapusData;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
@@ -288,7 +367,7 @@ public class Staff extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton kembali;
+    private javax.swing.JButton ubahData;
     // End of variables declaration//GEN-END:variables
 }

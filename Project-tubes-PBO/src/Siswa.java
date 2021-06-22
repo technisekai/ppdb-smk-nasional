@@ -8,6 +8,8 @@
  *
  * @author Im-Bot
  */
+
+import konfigurasi.Session;
 public class Siswa extends javax.swing.JFrame {
 
     /**
@@ -45,7 +47,6 @@ public class Siswa extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -57,6 +58,7 @@ public class Siswa extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(18, 93, 152));
 
@@ -181,43 +183,44 @@ public class Siswa extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setText(Session.getAlamat());
         jScrollPane1.setViewportView(jTextArea1);
-
-        jLabel14.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel14.setText("[nama user]");
 
         jLabel16.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel16.setText("Tempat, Tanggal Lahir");
 
         jLabel17.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel17.setText("[tempat tanggal lahir]");
+        jLabel17.setText(Session.getTtl());
 
         jLabel18.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel18.setText("Jenis Kelamin");
 
         jLabel19.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel19.setText("[jenis kelamin]");
+        jLabel19.setText(Session.getJenisKelamin());
 
         jLabel20.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel20.setText("Jumlah Nilai UN");
 
         jLabel21.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel21.setText("[jumlah nilai un]");
+        jLabel21.setText(String.valueOf(Session.getJml_un()));
 
         jLabel22.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel22.setText("Jurusan");
 
         jLabel23.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel23.setText("[Pilihan 1]");
+        jLabel23.setText(Session.getJurursan_pil1());
 
         jLabel24.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel24.setText("[Pilihan 2]");
+        jLabel24.setText(Session.getJurursan_pil2());
 
         jLabel25.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel25.setText("Status");
 
         jLabel26.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel26.setText("[sedang memverifikasi]");
+        jLabel26.setText(Session.getStatus());
+
+        jLabel28.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jLabel28.setText(Session.getNama());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -240,7 +243,7 @@ public class Siswa extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel12)
                                         .addGap(126, 126, 126)
-                                        .addComponent(jLabel14))
+                                        .addComponent(jLabel28))
                                     .addComponent(jLabel22)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,9 +257,9 @@ public class Siswa extends javax.swing.JFrame {
                                             .addComponent(jLabel26)
                                             .addComponent(jLabel24)
                                             .addComponent(jLabel21)
-                                            .addComponent(jLabel19)
-                                            .addComponent(jLabel17))))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                            .addComponent(jLabel17)
+                                            .addComponent(jLabel19))))
+                                .addGap(0, 176, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(kembali)))
@@ -274,7 +277,7 @@ public class Siswa extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
-                            .addComponent(jLabel14))
+                            .addComponent(jLabel28))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -366,7 +369,6 @@ public class Siswa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -380,6 +382,7 @@ public class Siswa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

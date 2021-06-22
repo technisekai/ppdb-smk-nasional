@@ -1,3 +1,12 @@
+
+import com.mysql.jdbc.Statement;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import konfigurasi.Koneksi;
+import konfigurasi.Session;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -160,6 +169,11 @@ public class Masuk extends javax.swing.JFrame {
 
         masuk.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
         masuk.setText("Masuk");
+        masuk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masukActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel1.setText("ID Pendaftaran");
@@ -245,6 +259,56 @@ public class Masuk extends javax.swing.JFrame {
     private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
         new Main().setVisible(true);
     }//GEN-LAST:event_kembaliActionPerformed
+
+    private void masukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukActionPerformed
+        try {
+            String nama = null, alamat = null, ttl = null, jenis_kelamin = null, jurusan_pil1= null, jurusan_pil2= null, status = null;
+            int jml_un = 0, role = 0;
+            
+            String user = idPendaftaran.getText();
+            String pass = password.getText();
+            Connection conn = Koneksi.getConnection();
+            Statement stmt = (Statement) conn.createStatement();
+            
+            ResultSet rsLogin = stmt.executeQuery("SELECT * FROM pendaftaran where nama='"+user+"' AND id_pendaftaran='"+pass+"';");
+            while (rsLogin.next()) {
+                nama = rsLogin.getString("nama");
+                alamat = rsLogin.getString("alamat");
+                ttl = rsLogin.getString("ttl");
+                jenis_kelamin = rsLogin.getString("jenis_kelamin");
+                jml_un = rsLogin.getInt("jml_un");
+                jurusan_pil1 = rsLogin.getString("jurusan_pil1");
+                jurusan_pil2 = rsLogin.getString("jurusan_pil2");
+                status = rsLogin.getString("status");
+                role = rsLogin.getInt("role");
+                
+                rsLogin.last();
+                if (rsLogin.getRow() == 1){
+                    Session.setNama(nama);
+                    Session.setAlamat(alamat);
+                    Session.setTtl(ttl);
+                    Session.setJenisKelamin(jenis_kelamin);
+                    Session.setJml_un(jml_un);
+                    Session.setJurursan_pil1(jurusan_pil1);
+                    Session.setJurursan_pil2(jurusan_pil2);
+                    Session.setStatus(status);
+                    
+                    if (role == 21354){
+                        new Staff().setVisible(true);                                                
+                    }
+                    else {
+                        new Siswa().setVisible(true);
+                    }
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Maaf, Username / Password salah!");
+                }
+            }
+        }
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_masukActionPerformed
 
     /**
      * @param args the command line arguments
