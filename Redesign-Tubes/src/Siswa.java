@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 
+/**
+ *
+ * @author Im-Bot
+ */
 import com.mysql.jdbc.Statement;
 import java.sql.SQLException;
 import java.sql.Connection;
@@ -11,10 +15,7 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import konfigurasi.Koneksi;
 import konfigurasi.Session;
-/**
- *
- * @author Im-Bot
- */
+
 public class Siswa extends javax.swing.JFrame {
 
     /**
@@ -36,34 +37,31 @@ public class Siswa extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         kembali = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        kembali2 = new javax.swing.JButton();
-        kembali3 = new javax.swing.JButton();
-        kembali4 = new javax.swing.JButton();
         kembali1 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel13 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
+        mulaiTest = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
 
         jLabel3.setFont(new java.awt.Font("PT Sans", 1, 18)); // NOI18N
         jLabel3.setText("SMK NASIONAL");
@@ -79,85 +77,38 @@ public class Siswa extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 51));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(249, 249, 249));
         jPanel1.setForeground(new java.awt.Color(5, 55, 66));
 
-        jPanel2.setBackground(new java.awt.Color(0, 90, 141));
-
-        jLabel4.setFont(new java.awt.Font("PT Sans", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("SMK NASIONAL");
-
-        kembali2.setBackground(new java.awt.Color(0, 90, 141));
-        kembali2.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
-        kembali2.setForeground(new java.awt.Color(255, 255, 255));
-        kembali2.setText("Home");
-        kembali2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kembali2ActionPerformed(evt);
-            }
-        });
-
-        kembali3.setBackground(new java.awt.Color(0, 90, 141));
-        kembali3.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
-        kembali3.setForeground(new java.awt.Color(255, 255, 255));
-        kembali3.setText("Pendaftaran");
-        kembali3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kembali3ActionPerformed(evt);
-            }
-        });
-
-        kembali4.setBackground(new java.awt.Color(0, 90, 141));
-        kembali4.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
-        kembali4.setForeground(new java.awt.Color(255, 255, 255));
-        kembali4.setText("Informasi Sekolah");
-        kembali4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kembali4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(kembali4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(kembali2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(kembali3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4)
-                        .addGap(9, 9, 9)))
-                .addGap(90, 90, 90))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(jLabel4)
-                .addGap(169, 169, 169)
-                .addComponent(kembali2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kembali3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kembali4)
-                .addContainerGap(164, Short.MAX_VALUE))
-        );
-
-        kembali1.setBackground(new java.awt.Color(206, 18, 18));
+        kembali1.setBackground(new java.awt.Color(0, 204, 204));
         kembali1.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
         kembali1.setForeground(new java.awt.Color(255, 255, 255));
-        kembali1.setText("Logout");
+        kembali1.setText("Kembali");
         kembali1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kembali1ActionPerformed(evt);
             }
         });
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setIcon(new javax.swing.ImageIcon("/home/Im-Bot/Documents/Coding/Java/PEMROGRAMAN_BERORIENTASI_OBJEK/Redesign-Tubes/haha/SMK nasional (1).png")); // NOI18N
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel7)
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel7)
+                .addGap(0, 378, Short.MAX_VALUE))
+        );
 
         jLabel2.setFont(new java.awt.Font("PT Sans", 1, 36)); // NOI18N
         jLabel2.setText("Selamat Datang, Calon Peserta Didik");
@@ -168,52 +119,53 @@ public class Siswa extends javax.swing.JFrame {
         jLabel28.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel28.setText(Session.getNama());
 
+        jLabel18.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jLabel18.setText("Jenis Kelamin");
+
+        jLabel13.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jLabel13.setText("Alamat");
+
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText(Session.getAlamat());
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel13.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel13.setText("Alamat");
-
         jLabel16.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel16.setText("Tempat, Tanggal Lahir");
-
-        jLabel17.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel17.setText(Session.getTtl());
-
-        jLabel19.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel19.setText(Session.getJenisKelamin());
-
-        jLabel18.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel18.setText("Jenis Kelamin");
-
-        jLabel20.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel20.setText("Jumlah Nilai UN");
-
-        jLabel21.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel21.setText(String.valueOf(Session.getJml_un()));
-
-        jLabel22.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel22.setText("Jurusan");
-
-        jLabel23.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel23.setText(Session.getJurursan_pil1());
-
-        jLabel24.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel24.setText(Session.getJurursan_pil2());
-
-        jLabel26.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel26.setText(Session.getStatus());
-
-        jLabel25.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel25.setText("Status");
 
         jLabel27.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel27.setText("No. Telpon");
 
+        jLabel17.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jLabel17.setText(Session.getTtl());
+
         jLabel29.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
-        jLabel29.setText("No. Telpon");
+        jLabel29.setText(Session.getNoTelp());
+
+        mulaiTest.setBackground(new java.awt.Color(82, 115, 77));
+        mulaiTest.setFont(new java.awt.Font("PT Sans", 1, 36)); // NOI18N
+        mulaiTest.setForeground(new java.awt.Color(255, 255, 255));
+        mulaiTest.setText("Mulai Test");
+        mulaiTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mulaiTestActionPerformed(evt);
+            }
+        });
+
+        jLabel25.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jLabel25.setText("Status");
+
+        jLabel26.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jLabel26.setText(Session.getStatus());
+
+        jLabel21.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jLabel21.setText(String.valueOf(Session.getTotal_nilai()));
+
+        jLabel20.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jLabel20.setText("Jumlah Nilai UN");
+
+        jLabel22.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jLabel22.setText("Jurusan");
 
         jLabel30.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel30.setText("Pilihan 1");
@@ -221,26 +173,28 @@ public class Siswa extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel31.setText("Pilihan 2");
 
-        jButton1.setBackground(new java.awt.Color(82, 115, 77));
-        jButton1.setFont(new java.awt.Font("PT Sans", 1, 36)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Mulai Test");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jLabel24.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jLabel24.setText(Session.getJurursan_pil2());
+
+        jLabel23.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jLabel23.setText(Session.getJurursan_pil1());
+
+        jLabel19.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        jLabel19.setText(Session.getJenisKelamin());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
+                        .addGap(56, 56, 56)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(235, 243, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -259,7 +213,7 @@ public class Siswa extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel29)
                                             .addComponent(jLabel17))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,33 +231,26 @@ public class Siswa extends javax.swing.JFrame {
                                                 .addGap(54, 54, 54)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabel31)
-                                                    .addComponent(jLabel24)))))
+                                                    .addComponent(jLabel24)
+                                                    .addComponent(kembali1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel20)
                                         .addGap(22, 22, 22)
                                         .addComponent(jLabel21)))
-                                .addGap(56, 56, 56))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addContainerGap())))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(kembali1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(289, 289, 289)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(mulaiTest, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(281, 281, 281))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(kembali1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel2)
-                .addGap(60, 60, 60)
+                .addGap(59, 59, 59)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel28)
@@ -341,16 +288,19 @@ public class Siswa extends javax.swing.JFrame {
                     .addComponent(jLabel29)
                     .addComponent(jLabel25)
                     .addComponent(jLabel26))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(75, 75, 75))
+                .addGap(79, 79, 79)
+                .addComponent(mulaiTest)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,26 +314,19 @@ public class Siswa extends javax.swing.JFrame {
         new Main().setVisible(true);
     }//GEN-LAST:event_kembaliActionPerformed
 
+    private void mulaiTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mulaiTestActionPerformed
+        if (Session.getStatus_tes() == 1){
+            JOptionPane.showMessageDialog(null, "Kamu sudah mengikuti tes!");
+        }
+        else{
+            new SoalUjian().setVisible(true);
+        }
+    }//GEN-LAST:event_mulaiTestActionPerformed
+
     private void kembali1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali1ActionPerformed
         dispose();
         new Main().setVisible(true);
     }//GEN-LAST:event_kembali1ActionPerformed
-
-    private void kembali2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kembali2ActionPerformed
-
-    private void kembali3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kembali3ActionPerformed
-
-    private void kembali4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kembali4ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new SoalUjian().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -421,7 +364,6 @@ public class Siswa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel16;
@@ -442,15 +384,13 @@ public class Siswa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton kembali;
     private javax.swing.JButton kembali1;
-    private javax.swing.JButton kembali2;
-    private javax.swing.JButton kembali3;
-    private javax.swing.JButton kembali4;
+    private javax.swing.JButton mulaiTest;
     // End of variables declaration//GEN-END:variables
 }

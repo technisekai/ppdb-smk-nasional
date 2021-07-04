@@ -8,6 +8,8 @@ import com.mysql.jdbc.Statement;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import konfigurasi.Koneksi;
 import konfigurasi.Session;
@@ -16,7 +18,65 @@ import konfigurasi.Session;
  * @author Im-Bot
  */
 public class Masuk extends javax.swing.JFrame {
+    void login(String role) throws SQLException{
+        String nama = null, alamat = null, ttl = null, jenis_kelamin = null, no_telp = null, jurusan_pil1 = null, jurusan_pil2= null, status = null;
+        int total_nilai = 0, status_tes;
 
+        String user = idPendaftaran.getText();
+        String pass = password.getText();
+        Connection conn = Koneksi.getConnection();
+        Statement stmt = (Statement) conn.createStatement();
+        ResultSet rsLogin = stmt.executeQuery("SELECT * FROM " +role+ " where nama='"+user+"' AND id_"+role+"='"+pass+"';");
+        if (rsLogin.next()){
+            if(pass.equals(rsLogin.getString("id_"+role))){
+                if (role == "pendaftaran"){
+                    nama = rsLogin.getString("nama");
+                    alamat = rsLogin.getString("alamat");
+                    ttl = rsLogin.getString("ttl");
+                    jenis_kelamin = rsLogin.getString("jenis_kelamin");
+                    no_telp = rsLogin.getString("no_hp");
+                    total_nilai = rsLogin.getInt("total_nilai");
+                    jurusan_pil1 = rsLogin.getString("jurusan_pil1");
+                    jurusan_pil2 = rsLogin.getString("jurusan_pil2");
+                    status = rsLogin.getString("status_lulus");
+                    status_tes = rsLogin.getInt("status_test");
+                    
+                    Session.setNama(nama);
+                    Session.setAlamat(alamat);
+                    Session.setTtl(ttl);
+                    Session.setJenisKelamin(jenis_kelamin);
+                    Session.setNoTelp(no_telp);
+                    Session.setTotal_nilai(total_nilai);
+                    Session.setJurursan_pil1(jurusan_pil1);
+                    Session.setJurursan_pil2(jurusan_pil2);
+                    Session.setStatus(status);
+                    Session.setStatus_tes(status_tes);
+                    
+                    new Siswa().setVisible(true);
+                    if (!status.equals("Evaluasi")){
+                        JOptionPane.showMessageDialog(null,"Selamat anda diterima di jurusan " +status);
+                    }
+                    else if (status == "Tidak Lulus"){
+                        JOptionPane.showMessageDialog(null,"Mohon maaf, Anda dinyatakan " +status);
+                    }
+                    
+                    dispose();
+                }
+                else {
+                    new Staff().setVisible(true);
+                    dispose();
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(rootPane,"username/password salah");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane,"user tidak ditemukan");
+        }
+    }
+    
+    
     /**
      * Creates new form Main
      */
@@ -36,11 +96,6 @@ public class Masuk extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         kembali = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        kembali2 = new javax.swing.JButton();
-        kembali3 = new javax.swing.JButton();
-        kembali4 = new javax.swing.JButton();
         kembali1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -48,6 +103,9 @@ public class Masuk extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         masuk = new javax.swing.JButton();
         password = new javax.swing.JPasswordField();
+        role = new javax.swing.JComboBox<>();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
 
         jLabel3.setFont(new java.awt.Font("PT Sans", 1, 18)); // NOI18N
         jLabel3.setText("SMK NASIONAL");
@@ -63,80 +121,14 @@ public class Masuk extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 51));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(249, 249, 249));
         jPanel1.setForeground(new java.awt.Color(5, 55, 66));
 
-        jPanel2.setBackground(new java.awt.Color(0, 90, 141));
-
-        jLabel4.setFont(new java.awt.Font("PT Sans", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("SMK NASIONAL");
-
-        kembali2.setBackground(new java.awt.Color(0, 90, 141));
-        kembali2.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
-        kembali2.setForeground(new java.awt.Color(255, 255, 255));
-        kembali2.setText("Home");
-        kembali2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kembali2ActionPerformed(evt);
-            }
-        });
-
-        kembali3.setBackground(new java.awt.Color(0, 90, 141));
-        kembali3.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
-        kembali3.setForeground(new java.awt.Color(255, 255, 255));
-        kembali3.setText("Pendaftaran");
-        kembali3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kembali3ActionPerformed(evt);
-            }
-        });
-
-        kembali4.setBackground(new java.awt.Color(0, 90, 141));
-        kembali4.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
-        kembali4.setForeground(new java.awt.Color(255, 255, 255));
-        kembali4.setText("Informasi Sekolah");
-        kembali4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kembali4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(kembali4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(kembali2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(kembali3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4)
-                        .addGap(9, 9, 9)))
-                .addGap(90, 90, 90))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(jLabel4)
-                .addGap(169, 169, 169)
-                .addComponent(kembali2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kembali3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kembali4)
-                .addContainerGap(164, Short.MAX_VALUE))
-        );
-
-        kembali1.setBackground(new java.awt.Color(0, 90, 141));
+        kembali1.setBackground(new java.awt.Color(0, 204, 204));
         kembali1.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
         kembali1.setForeground(new java.awt.Color(255, 255, 255));
         kembali1.setText("Kembali");
+        kembali1.setBorder(null);
         kembali1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kembali1ActionPerformed(evt);
@@ -154,10 +146,11 @@ public class Masuk extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jLabel11.setText("Password");
 
-        masuk.setBackground(new java.awt.Color(82, 115, 77));
+        masuk.setBackground(new java.awt.Color(0, 102, 51));
         masuk.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
         masuk.setForeground(new java.awt.Color(255, 255, 255));
         masuk.setText("Masuk");
+        masuk.setBorder(null);
         masuk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 masukActionPerformed(evt);
@@ -165,6 +158,29 @@ public class Masuk extends javax.swing.JFrame {
         });
 
         password.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+
+        role.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
+        role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Siswa", "Staff" }));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setIcon(new javax.swing.ImageIcon("/home/Im-Bot/Documents/Coding/Java/PEMROGRAMAN_BERORIENTASI_OBJEK/Redesign-Tubes/haha/SMK nasional (1).png")); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel5)
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel5)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -174,39 +190,40 @@ public class Masuk extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 572, Short.MAX_VALUE)
-                                .addComponent(kembali1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(173, 173, 173)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(38, 38, 38))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addGap(41, 41, 41)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                    .addComponent(idPendaftaran)
-                                    .addComponent(masuk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 518, Short.MAX_VALUE)
+                        .addComponent(kembali1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(284, 284, 284))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)
+                                .addGap(92, 92, 92))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(masuk, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel1)
+                                            .addGap(38, 38, 38))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel11)
+                                            .addGap(41, 41, 41)))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(role, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(password)
+                                        .addComponent(idPendaftaran, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(kembali1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(151, 151, 151)
+                .addGap(133, 133, 133)
                 .addComponent(jLabel2)
-                .addGap(38, 38, 38)
+                .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(idPendaftaran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -214,9 +231,12 @@ public class Masuk extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addGap(52, 52, 52)
-                .addComponent(masuk)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(masuk, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(170, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,67 +264,20 @@ public class Masuk extends javax.swing.JFrame {
         new Main().setVisible(true);
     }//GEN-LAST:event_kembali1ActionPerformed
 
-    private void kembali2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kembali2ActionPerformed
-
-    private void kembali3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kembali3ActionPerformed
-
-    private void kembali4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kembali4ActionPerformed
-
     private void masukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukActionPerformed
-        try {
-            String nama = null, alamat = null, ttl = null, jenis_kelamin = null, jurusan_pil1= null, jurusan_pil2= null, status = null;
-            int jml_un = 0, role = 0;
-
-            String user = idPendaftaran.getText();
-            String pass = password.getText();
-            Connection conn = Koneksi.getConnection();
-            Statement stmt = (Statement) conn.createStatement();
-
-            ResultSet rsLogin = stmt.executeQuery("SELECT * FROM pendaftaran where nama='"+user+"' AND id_pendaftaran='"+pass+"';");
-            while (rsLogin.next()) {
-                nama = rsLogin.getString("nama");
-                alamat = rsLogin.getString("alamat");
-                ttl = rsLogin.getString("ttl");
-                jenis_kelamin = rsLogin.getString("jenis_kelamin");
-                jml_un = rsLogin.getInt("jml_un");
-                jurusan_pil1 = rsLogin.getString("jurusan_pil1");
-                jurusan_pil2 = rsLogin.getString("jurusan_pil2");
-                status = rsLogin.getString("status");
-                role = rsLogin.getInt("role");
-
-                rsLogin.last();
-                if (rsLogin.getRow() == 1){
-                    Session.setNama(nama);
-                    Session.setAlamat(alamat);
-                    Session.setTtl(ttl);
-                    Session.setJenisKelamin(jenis_kelamin);
-                    Session.setJml_un(jml_un);
-                    Session.setJurursan_pil1(jurusan_pil1);
-                    Session.setJurursan_pil2(jurusan_pil2);
-                    Session.setStatus(status);
-
-                    if (role == 21354){
-                        dispose();
-                        new Staff().setVisible(true);
-                    }
-                    else {
-                        dispose();
-                        new Siswa().setVisible(true);
-                    }
-                }
-                else {
-                    JOptionPane.showMessageDialog(null, "Maaf, Username / Password salah!");
-                }
+        if (role.getSelectedItem() == "Siswa"){
+            try {
+                login("pendaftaran");
+            } catch (SQLException ex) {
+                Logger.getLogger(Masuk.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
+        else {
+            try {
+                login("admin");
+            } catch (SQLException ex) {
+                Logger.getLogger(Masuk.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_masukActionPerformed
 
@@ -349,15 +322,13 @@ public class Masuk extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton kembali;
     private javax.swing.JButton kembali1;
-    private javax.swing.JButton kembali2;
-    private javax.swing.JButton kembali3;
-    private javax.swing.JButton kembali4;
     private javax.swing.JButton masuk;
     private javax.swing.JPasswordField password;
+    private javax.swing.JComboBox<String> role;
     // End of variables declaration//GEN-END:variables
 }
