@@ -14,10 +14,28 @@ public class Session {
     private static String alamat;
     private static String ttl;
     private static String jenisKelamin;
-    private static int jml_un;
+    private static String noTelp;
+    private static float total_nilai;
     private static String jurursan_pil1;
     private static String jurursan_pil2;
     private static String status;
+
+    public static int getStatus_tes() {
+        return status_tes;
+    }
+
+    public static void setStatus_tes(int status_tes) {
+        Session.status_tes = status_tes;
+    }
+    private static int status_tes;
+
+    public static String getNoTelp() {
+        return noTelp;
+    }
+
+    public static void setNoTelp(String noTelp) {
+        Session.noTelp = noTelp;
+    }
 
     public static String getNama() {
         return nama;
@@ -51,12 +69,12 @@ public class Session {
         Session.jenisKelamin = jenisKelamin;
     }
 
-    public static int getJml_un() {
-        return jml_un;
+    public static float getTotal_nilai() {
+        return total_nilai;
     }
 
-    public static void setJml_un(int jml_un) {
-        Session.jml_un = jml_un;
+    public static void setTotal_nilai(int total_nilai) {
+        Session.total_nilai = total_nilai;
     }
 
     public static String getJurursan_pil1() {

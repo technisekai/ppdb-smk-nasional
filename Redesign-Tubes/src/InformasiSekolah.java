@@ -29,18 +29,17 @@ public class InformasiSekolah extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         kembali = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        kembali2 = new javax.swing.JButton();
-        kembali3 = new javax.swing.JButton();
-        kembali4 = new javax.swing.JButton();
-        kembali1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel11 = new javax.swing.JLabel();
         informasiJurusan = new javax.swing.JComboBox<>();
         lihatInformasi = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        pendaftaran = new javax.swing.JLabel();
+        masuk = new javax.swing.JLabel();
+        home = new javax.swing.JLabel();
 
         jLabel3.setFont(new java.awt.Font("PT Sans", 1, 18)); // NOI18N
         jLabel3.setText("SMK NASIONAL");
@@ -56,85 +55,8 @@ public class InformasiSekolah extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 51));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(249, 249, 249));
         jPanel1.setForeground(new java.awt.Color(5, 55, 66));
-
-        jPanel2.setBackground(new java.awt.Color(0, 90, 141));
-
-        jLabel4.setFont(new java.awt.Font("PT Sans", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("SMK NASIONAL");
-
-        kembali2.setBackground(new java.awt.Color(0, 90, 141));
-        kembali2.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
-        kembali2.setForeground(new java.awt.Color(255, 255, 255));
-        kembali2.setText("Home");
-        kembali2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kembali2ActionPerformed(evt);
-            }
-        });
-
-        kembali3.setBackground(new java.awt.Color(0, 90, 141));
-        kembali3.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
-        kembali3.setForeground(new java.awt.Color(255, 255, 255));
-        kembali3.setText("Pendaftaran");
-        kembali3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kembali3ActionPerformed(evt);
-            }
-        });
-
-        kembali4.setBackground(new java.awt.Color(0, 90, 141));
-        kembali4.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
-        kembali4.setForeground(new java.awt.Color(255, 255, 255));
-        kembali4.setText("Informasi Sekolah");
-        kembali4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kembali4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(kembali4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(kembali2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(kembali3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4)
-                        .addGap(9, 9, 9)))
-                .addGap(90, 90, 90))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(jLabel4)
-                .addGap(169, 169, 169)
-                .addComponent(kembali2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kembali3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kembali4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        kembali1.setBackground(new java.awt.Color(0, 90, 141));
-        kembali1.setFont(new java.awt.Font("PT Sans", 1, 14)); // NOI18N
-        kembali1.setForeground(new java.awt.Color(255, 255, 255));
-        kembali1.setText("Kembali");
-        kembali1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kembali1ActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("PT Sans", 1, 36)); // NOI18N
         jLabel2.setText("Sejarah");
@@ -142,7 +64,7 @@ public class InformasiSekolah extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("PT Sans", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("SMK Nasional merupakan salah satu sekolah menengah kejuruan yang berada di wilayah \nKabupeten Pekalongan, sekolah ini berdiri pada tanggal 2 Juni 2007 dan diresmikan oleh \nMenteri Pendidikan Nasional Republik Indonesia Bapak Prof. Dr. Bambang Sudibyo, MBA \npada tanggal 17 Pebruari 2009. Penetapan operasional SMK Nasional berdasarkan Keputusan \nBupati Pekalongan nomor. 421/309 tahun 2009, dengan dua program keahlian yaitu \nTeknik Komputer dan Jaringan (TKJ) dan Akuntansi. Sejak berdiri SMK Nasional selalu \nmengalami dan melakukan pengembangan. Untuk program keahlian sampai tahun 2015 \nSMK Nasional melakukan penambahan satu program keahlian yaitu \nTeknik Kendaraan Ringan (TKR).");
+        jTextArea1.setText("SMK Nasional merupakan salah satu sekolah menengah kejuruan yang berada di \nwilayah Kabupeten Pekalongan, sekolah ini berdiri pada tanggal 2 Juni 2007 dan \ndiresmikan oleh Menteri Pendidikan Nasional Republik Indonesia \nBapak Prof. Dr. Bambang Sudibyo, MBA pada tanggal 17 Pebruari 2009. Penetapan \noperasional SMK Nasional berdasarkan Keputusan Bupati Pekalongan \nnomor. 421/309 tahun 2009, dengan dua program keahlian yaitu \nTeknik Komputer dan Jaringan (TKJ) dan Akuntansi. Sejak berdiri SMK Nasional \nselalu mengalami dan melakukan pengembangan. Untuk program keahlian sampai \ntahun 2015 SMK Nasional melakukan penambahan satu program keahlian yaitu \nTeknik Kendaraan Ringan (TKR).");
         jTextArea1.setEditable(false);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -167,46 +89,90 @@ public class InformasiSekolah extends javax.swing.JFrame {
             }
         });
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/SMK nasional (1).png"))); // NOI18N
+
+        pendaftaran.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Pendaftaran.png"))); // NOI18N
+        pendaftaran.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pendaftaranMouseClicked(evt);
+            }
+        });
+
+        masuk.setIcon(new javax.swing.ImageIcon("/home/Im-Bot/Documents/Coding/Java/PEMROGRAMAN_BERORIENTASI_OBJEK/Redesign-Tubes/src/icon/Masuk1.png")); // NOI18N
+        masuk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                masukMouseClicked(evt);
+            }
+        });
+
+        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Home.png"))); // NOI18N
+        home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homeMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel7)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(home)
+                    .addComponent(masuk)
+                    .addComponent(pendaftaran))
+                .addGap(110, 110, 110))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel7)
+                .addGap(28, 28, 28)
+                .addComponent(home)
+                .addGap(18, 18, 18)
+                .addComponent(pendaftaran)
+                .addGap(18, 18, 18)
+                .addComponent(masuk)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addComponent(informasiJurusan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(lihatInformasi)
-                                    .addComponent(jLabel11))
-                                .addGap(0, 364, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(kembali1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addComponent(informasiJurusan, 0, 557, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addComponent(lihatInformasi)
+                    .addComponent(jLabel11)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(kembali1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addGap(112, 112, 112)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(informasiJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lihatInformasi, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -229,27 +195,6 @@ public class InformasiSekolah extends javax.swing.JFrame {
         new Main().setVisible(true);
     }//GEN-LAST:event_kembaliActionPerformed
 
-    private void kembali1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali1ActionPerformed
-        dispose();
-        new Main().setVisible(true);
-    }//GEN-LAST:event_kembali1ActionPerformed
-
-    private void kembali2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kembali2ActionPerformed
-
-    private void kembali3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kembali3ActionPerformed
-
-    private void kembali4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kembali4ActionPerformed
-
-    private void informasiJurusanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_informasiJurusanActionPerformed
-        
-    }//GEN-LAST:event_informasiJurusanActionPerformed
-
     private void lihatInformasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lihatInformasiActionPerformed
         String namaJurusan = informasiJurusan.getSelectedItem().toString();
         if (namaJurusan == "Teknik Komputer Jaringan (TKJ)"){
@@ -265,6 +210,25 @@ public class InformasiSekolah extends javax.swing.JFrame {
             new AK().setVisible(true);
         }
     }//GEN-LAST:event_lihatInformasiActionPerformed
+
+    private void informasiJurusanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_informasiJurusanActionPerformed
+
+    }//GEN-LAST:event_informasiJurusanActionPerformed
+
+    private void pendaftaranMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendaftaranMouseClicked
+        new Pendaftaran().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_pendaftaranMouseClicked
+
+    private void masukMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masukMouseClicked
+        new Masuk().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_masukMouseClicked
+
+    private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
+        new Main().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_homeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -302,20 +266,19 @@ public class InformasiSekolah extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel home;
     private javax.swing.JComboBox<String> informasiJurusan;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton kembali;
-    private javax.swing.JButton kembali1;
-    private javax.swing.JButton kembali2;
-    private javax.swing.JButton kembali3;
-    private javax.swing.JButton kembali4;
     private javax.swing.JButton lihatInformasi;
+    private javax.swing.JLabel masuk;
+    private javax.swing.JLabel pendaftaran;
     // End of variables declaration//GEN-END:variables
 }
