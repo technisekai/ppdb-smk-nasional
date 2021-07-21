@@ -324,7 +324,6 @@ public class Pendaftaran extends javax.swing.JFrame {
 
     private void daftarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_daftarMouseClicked
         String id = null;
-        Double nilai = Double.parseDouble(nilaiUN.getText());
             
         if (nama.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Nama tidak boleh kosong!");
@@ -338,7 +337,7 @@ public class Pendaftaran extends javax.swing.JFrame {
         else if (noTelp.getText().equals("")){
             JOptionPane.showMessageDialog(null,"No Telepon tidak boleh kosong!");
         }
-        else if (nilaiUN.getText().equals("") || nilai > 40 || nilai < 0){
+        else if (nilaiUN.getText().equals("") || Double.parseDouble(nilaiUN.getText()) > 40 || Double.parseDouble(nilaiUN.getText()) < 0){
             JOptionPane.showMessageDialog(null,"Nilai tidak sesuai!");
         }
         else if (jurusanPil1.getSelectedItem().equals(jurusanPil2.getSelectedItem())){
