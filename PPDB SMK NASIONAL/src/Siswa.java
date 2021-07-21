@@ -354,11 +354,13 @@ public class Siswa extends javax.swing.JFrame {
         }
         else{
             new MulaiTest().setVisible(true);
+            dispose();
         }
     }//GEN-LAST:event_mulaiTestMouseClicked
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         new Main().setVisible(true);
+        dispose();
     }//GEN-LAST:event_logoutMouseClicked
 
     /**
