@@ -1,12 +1,16 @@
+<p align="center">
+  <img src="PPDB SMK Nasional.png" align="tcenter">
+</p>
 
-## Tim Megono (IF07K)
+
+### :busts_in_silhouette: Tim Megono (IF07K)
 1. Widi Afandi - 19102127 (Project Manager & Programmer)
 
 2. Ahmad Saiful H - 19102158 (Programmer & Designer)
 
 3. Bayu Setyaji - 19102157 (Analyst)
 
-## Deskripsi
+### :notebook_with_decorative_cover: Deskripsi
 Aplikasi yang kelompok kami buat adalah “Aplikasi Pendaftaran Peserta Didik Baru di SMK
 Nasional”. Aplikasi ini bertujuan dan berfungsi sebagai sarana pendaftaran calon peserta didik
 baru yang akan melanjutkan jenjang pendidikan di SMK Nasional. Aplikasi ini memberikan
@@ -17,7 +21,7 @@ siswa tersebut serta mengerjakan soal ujian sebagai nilai tambah, dan jika login
 akan memiliki hak akses untuk melihat semua daftar siswa yang telah mendaftar, menghapus dan
 mengedit seluruh data siswa yang ada.
 
-## Overview
+### :eyes: Overview
 * *Home*
 
   <img src="Overview/main.png" width="700"/>
